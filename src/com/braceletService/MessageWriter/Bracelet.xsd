@@ -8,19 +8,19 @@
 			</xsd:sequence>
 			<xsd:attribute name="created" type="xsd:dateTime" />
 			<xsd:attribute name="id" type="xsd:long" />
-			<xsd:attribute name="model" type="braceletModels" />
-			<xsd:attribute name="size" type="braceletSizes" />
+			<xsd:attribute name="model" type="xsd:string" />
+			<xsd:attribute name="size" type="xsd:string" />
 			<xsd:attribute name="name" type="xsd:string" />
 		</xsd:complexType>
     </xsd:element>
 	<xsd:complexType name="orbsType">
 		<xsd:sequence>
-			<xsd:element name="orb" type="orbType" minOccurs="1" maxOccurs="20" />
+			<xsd:element name="orb" type="orbType" minOccurs="20" maxOccurs="30" />
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="pendantType">
 		<xsd:attribute name="model" type="pendantModels" />
-		<xsd:attribute name="color" type="pendantColors" />
+		<xsd:attribute name="color" type="xsd:string" />
 	</xsd:complexType>
 	<xsd:complexType name="orbType">
 		<xsd:attribute name="size" type="orbSizes" />
@@ -28,44 +28,27 @@
 	</xsd:complexType>
 	<xsd:simpleType name="braceletSizes">
 		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="XXL" />
+			<xsd:enumeration value="XL" />
 			<xsd:enumeration value="L" />
 			<xsd:enumeration value="M" />
 			<xsd:enumeration value="S" />
-		</xsd:restriction>
-	</xsd:simpleType>
-	<xsd:simpleType name="braceletModels">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="A" />
-			<xsd:enumeration value="B" />
-			<xsd:enumeration value="C" />
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="orbSizes">
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="L" />
-			<xsd:enumeration value="M" />
-			<xsd:enumeration value="S" />
+			<xsd:enumeration value="6mm" />
+			<xsd:enumeration value="8mm" />
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="orbStyles">
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="A" />
-			<xsd:enumeration value="B" />
-			<xsd:enumeration value="C" />
+			<xsd:pattern value="img\/[A-Z,a-z]*\.png"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="pendantModels">
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="A" />
-			<xsd:enumeration value="B" />
-			<xsd:enumeration value="C" />
-		</xsd:restriction>
-	</xsd:simpleType>
-	<xsd:simpleType name="pendantColors">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="A" />
-			<xsd:enumeration value="B" />
-			<xsd:enumeration value="C" />
+			<xsd:pattern value="img\/[A-Z,a-z]*\.png"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:schema>
