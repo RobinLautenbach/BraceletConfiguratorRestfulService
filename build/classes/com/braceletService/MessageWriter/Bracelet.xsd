@@ -4,7 +4,26 @@
         <xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="price" type="priceType" minOccurs="1" maxOccurs="1" />
-				<xsd:element name="orbs" type="orbsType" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="orbs" minOccurs="1" maxOccurs="1" >
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="orb" minOccurs="20" maxOccurs="30">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="premium" type="priceType" minOccurs="0" maxOccurs="1" />
+									</xsd:sequence>
+									<xsd:attribute name="size" type="orbSizes" />
+									<xsd:attribute name="style" type="xsd:string" />
+									<xsd:attribute name="position" type="xsd:integer" />
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				    <xsd:unique name="unique-position">
+				        <xsd:selector xpath="orb"/>
+				        <xsd:field xpath="@position"/>
+					</xsd:unique>
+				</xsd:element>
 				<xsd:element name="pendant" type="pendantType" minOccurs="0" maxOccurs="1" />
 			</xsd:sequence>
 			<xsd:attribute name="created" type="xsd:dateTime" />
@@ -21,25 +40,12 @@
 	      </xsd:extension>
     	</xsd:simpleContent>
 	</xsd:complexType>
-	<xsd:complexType name="orbsType">
-		<xsd:sequence>
-			<xsd:element name="orb" type="orbType" minOccurs="20" maxOccurs="30" />
-		</xsd:sequence>
-	</xsd:complexType>
 	<xsd:complexType name="pendantType">
 		<xsd:sequence>
 			<xsd:element name="premium" type="priceType" minOccurs="0" maxOccurs="1" />
 		</xsd:sequence>
 		<xsd:attribute name="model" type="xsd:string" />
 		<xsd:attribute name="color" type="xsd:string" />
-	</xsd:complexType>
-	<xsd:complexType name="orbType">
-		<xsd:sequence>
-			<xsd:element name="premium" type="priceType" minOccurs="0" maxOccurs="1" />
-		</xsd:sequence>
-		<xsd:attribute name="size" type="orbSizes" />
-		<xsd:attribute name="style" type="xsd:string" />
-		<xsd:attribute name="position" type="xsd:integer" />
 	</xsd:complexType>
 	<xsd:simpleType name="braceletSizes">
 		<xsd:restriction base="xsd:string">
