@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="bracelet">	
+        <xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="orbs" type="orbsType" minOccurs="1" maxOccurs="1" />
+				<xsd:element name="pendant" type="pendantType" minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+			<xsd:attribute name="created" type="xsd:dateTime" />
+			<xsd:attribute name="id" type="xsd:long" />
+			<xsd:attribute name="model" type="braceletModels" />
+			<xsd:attribute name="size" type="braceletSizes" />
+			<xsd:attribute name="name" type="xsd:string" />
+		</xsd:complexType>
+    </xsd:element>
+	<xsd:complexType name="orbsType">
+		<xsd:sequence>
+			<xsd:element name="orb" type="orbType" minOccurs="1" maxOccurs="20" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="pendantType">
+		<xsd:attribute name="model" type="pendantModels" />
+		<xsd:attribute name="color" type="pendantColors" />
+	</xsd:complexType>
+	<xsd:complexType name="orbType">
+		<xsd:attribute name="size" type="orbSizes" />
+		<xsd:attribute name="style" type="orbStyles" />
+	</xsd:complexType>
+	<xsd:simpleType name="braceletSizes">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="L" />
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="S" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="braceletModels">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A" />
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="C" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="orbSizes">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="L" />
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="S" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="orbStyles">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A" />
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="C" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="pendantModels">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A" />
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="C" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="pendantColors">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A" />
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="C" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
