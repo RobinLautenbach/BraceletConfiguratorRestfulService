@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-@XmlType(propOrder={"orbs","pendant"})
+@XmlType(propOrder={"price","orbs","pendant"})
 public class Bracelet {
 
 	private long id;
@@ -18,6 +18,7 @@ public class Bracelet {
 	private String size;
 	private String model;
 	private Date created;
+	private ArrayList<Price> price = new ArrayList<Price>();
 	private ArrayList<Orb> orbs = new ArrayList<Orb>();
 	private Pendant pendant;
 	
@@ -94,5 +95,14 @@ public class Bracelet {
 
 	public void setPendant(Pendant pendant) {
 		this.pendant = pendant;
+	}
+
+	@XmlElement(name="price")
+	public ArrayList<Price> getPrice() {
+		return price;
+	}
+
+	public void setPrice(ArrayList<Price> price) {
+		this.price = price;
 	}
 }
