@@ -36,7 +36,7 @@
 	<xsd:complexType name="priceType">
 	    <xsd:simpleContent>
 	      <xsd:extension base="xsd:float">
-	        <xsd:attribute name="unit" type="xsd:string" />
+	        <xsd:attribute name="unit" type="xsd:string" use="required" />
 	      </xsd:extension>
     	</xsd:simpleContent>
 	</xsd:complexType>
