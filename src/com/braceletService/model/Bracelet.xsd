@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="bracelet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orbs" type="orbsType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="pendant" type="pendantType" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="created" type="xs:dateTime"/>
+			<xs:attribute name="id" type="xs:long"/>
+			<xs:attribute name="model" type="braceletModels"/>
+			<xs:attribute name="size" type="braceletSizes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="orbsType">
+		<xs:sequence>
+			<xs:element name="orb" type="orbType" minOccurs="20" maxOccurs="20"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="pendantType">
+		<xs:attribute name="model" type="pendantModels"/>
+		<xs:attribute name="color" type="pendantColors"/>
+	</xs:complexType>
+	<xs:complexType name="orbType">
+		<xs:attribute name="size" type="orbSizes"/>
+		<xs:attribute name="style" type="orbStyles"/>
+	</xs:complexType>
+	<xs:simpleType name="braceletSizes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="S"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="braceletModels">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="orbSizes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="S"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="orbStyles">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="pendantModels">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="pendantColors">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

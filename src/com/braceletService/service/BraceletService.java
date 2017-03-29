@@ -1,6 +1,7 @@
 package com.braceletService.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -20,9 +21,13 @@ public class BraceletService {
 		return bracelets.size();
 	}
 	
-    public List<Bracelet> getAllBraceletsPaginated(int start, int size) {
+    public List<Bracelet> getAllBraceletsPaginated(int start, int size){
         ArrayList<Bracelet> list = new ArrayList<Bracelet>(bracelets.values());
-        if(start + size > list.size()) return list.subList(start, list.size());
+        if(start + size > list.size()){
+        	if(start < list.size()){
+        		return list.subList(start, list.size());
+        	}
+        } 
         return list.subList(start, start + size);
     }
     
@@ -35,7 +40,7 @@ public class BraceletService {
 	}
 	
 	public Bracelet addBracelet(Bracelet bracelet){
-		bracelet.setId(bracelets.size() + 1);
+		bracelet.setId(bracelets.keySet().size() > 0 ? Collections.max(bracelets.keySet()) + 1 : 1);
 		bracelets.put(bracelet.getId(), bracelet);
 		return bracelet;
 	}

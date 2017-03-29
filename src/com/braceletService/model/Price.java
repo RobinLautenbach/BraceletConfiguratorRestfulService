@@ -1,10 +1,12 @@
 package com.braceletService.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
 
 public class Price {
 	
 	private String unit;
+	private float value;
 	
 	public Price(){
 		
@@ -21,6 +23,15 @@ public class Price {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+
+	@XmlValue
+	public float getValue() {
+		return value;
+	}
+
+	public void setValue(float value) {
+		this.value = value;
 	}
 
 }

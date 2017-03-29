@@ -97,7 +97,7 @@ public class Bracelet {
 		this.pendant = pendant;
 	}
 
-	@XmlElement(name="price")
+	@XmlElement(name="price", type=Price.class)
 	public ArrayList<Price> getPrice() {
 		return price;
 	}

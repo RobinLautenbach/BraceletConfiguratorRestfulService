@@ -9,7 +9,7 @@ public class Pendant {
 	
 	private String model;
 	private String color;
-	private ArrayList<Premium> premium = new ArrayList<Premium>();
+	private ArrayList<Price> price = new ArrayList<Price>();
 	
 	public Pendant(){
 		
@@ -38,13 +38,13 @@ public class Pendant {
 		this.color = color;
 	}
 
-	@XmlElement(name="premium")
-	public ArrayList<Premium> getPremium() {
-		return premium;
+	@XmlElement(name="premium", type=Price.class)
+	public ArrayList<Price> getPremium() {
+		return price;
 	}
 
-	public void setPremium(ArrayList<Premium> premium) {
-		this.premium = premium;
+	public void setPremium(ArrayList<Price> price) {
+		this.price = price;
 	}
 
 }

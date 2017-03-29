@@ -10,7 +10,7 @@ public class Orb {
 	private String size;
 	private String style;
 	private int position;
-	private ArrayList<Premium> premium = new ArrayList<Premium>();
+	private ArrayList<Price> price = new ArrayList<Price>();
 	
 	public Orb(){
 		
@@ -49,13 +49,13 @@ public class Orb {
 		this.position = position;
 	}
 
-	@XmlElement(name="premium")
-	public ArrayList<Premium> getPremium() {
-		return premium;
+	@XmlElement(name="premium", type=Price.class)
+	public ArrayList<Price> getPremium() {
+		return price;
 	}
 
-	public void setPremium(ArrayList<Premium> premium) {
-		this.premium = premium;
+	public void setPremium(ArrayList<Price> price) {
+		this.price = price;
 	}
 
 }

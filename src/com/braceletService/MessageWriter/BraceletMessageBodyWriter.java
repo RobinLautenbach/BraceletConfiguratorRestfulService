@@ -22,7 +22,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
-
+import com.braceletService.exception.ValidationException;
 import com.braceletService.model.Bracelet;
 
 @Provider
@@ -58,12 +58,15 @@ public class BraceletMessageBodyWriter implements MessageBodyReader<Bracelet> {
 	            unmarshaller.setSchema(schema);
 	            return (Bracelet) unmarshaller.unmarshal(arg5);
 	        } catch(JAXBException e) {
-	            throw new RuntimeException(e);
+	        	String message = e.toString().substring(e.toString().lastIndexOf(':')+1, e.toString().lastIndexOf(']')).trim();
+	        	if(message.indexOf(';') > -1){ 
+	        		message = message.substring(message.indexOf(';')+1).trim(); 
+	        	}
+	            throw new ValidationException(new JAXBException(message));
 	        }catch(Exception e) {
 	            throw new RuntimeException(e);
 	        }
 
 	}
-    
 
 }
