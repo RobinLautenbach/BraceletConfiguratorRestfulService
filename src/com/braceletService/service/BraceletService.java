@@ -26,8 +26,10 @@ public class BraceletService {
         if(start + size > list.size()){
         	if(start < list.size()){
         		return list.subList(start, list.size());
+        	}else{
+        		throw new RuntimeException("No Bracelets in DB");
         	}
-        } 
+        }
         return list.subList(start, start + size);
     }
     
